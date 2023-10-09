@@ -1,0 +1,29 @@
+# MIS480-Alberto-Lavalle-CAPSTONE-portfolioproject
+#0 - Load library "ggplot2" to use functions for creating graphics
+library(ggplot2)
+
+#1 - I will first read in my data set
+data <- read.csv("C:\\Users\\alana\\Desktop\\MetricTotalsMonthly.csv")
+
+#2 - I will then print the results by using the print function to see the table from the data set
+print(data)
+
+#3 - 
+# I will then calculate the summary statistics of minimum, maximum, mean, median,
+# and standard deviation for the auto assigned doc type guess rate
+summary_stats <- summary(data$auto_assigned_document_type_guess_rate)
+min_price <- min(data$auto_assigned_document_type_guess_rate)
+max_price <- max(data$auto_assigned_document_type_guess_rate)
+mean_price <- mean(data$auto_assigned_document_type_guess_rate)
+median_price <- median(data$auto_assigned_document_type_guess_rate)
+std_dev <- sd(data$auto_assigned_document_type_guess_rate)
+# Calculation results
+cat("Summary Stats for the Auto Assigned Document Type Guess Rate:\n")
+cat("Minimum: ", min_price, "\n")
+cat("Maximum: ", max_price, "\n")
+cat("Mean: ", mean_price, "\n")
+cat("Median: ", median_price, "\n")
+cat("Standard Deviation: ", std_dev, "\n")
+
+#3 - I will then create a scatter plot for the distribution of the auto assigned document type guess rate
+ggplot(data, aes(x = Month, y = auto_assigned_document_type_guess_rate)) + geom_point(shape=21, color='black', fill='lightblue', size=6) + labs(title = "2023 Scatter Plot for Auto Assigned Document Type Guess Rate", x = "Month", y = "Rate")
